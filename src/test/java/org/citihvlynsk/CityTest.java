@@ -1,4 +1,6 @@
-package org.citi;
+package org.citihvlynsk;
+import org.citi.LoginPage;
+import org.citi.ProfilePage;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -9,8 +11,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.concurrent.TimeUnit;
+public class CityTest {
 
-public class LoginTest {
     public static LoginPage loginPage;
     public static ProfilePage profilePage;
     public static WebDriver driver;
@@ -31,7 +33,7 @@ public class LoginTest {
 
 
     @Test
-    public void loginTest() throws InterruptedException {
+    public void CityTest() throws InterruptedException {
         String s = loginPage.statVoit();
         loginPage.showedMenu();
         loginPage.inputLogin("89030219119");
@@ -45,5 +47,4 @@ public class LoginTest {
             System.out.println("кнопка “Войти в аккаунт” сменилась на “Мой профиль”");
         }
     }
-
 }

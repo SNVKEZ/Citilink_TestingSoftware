@@ -35,7 +35,7 @@ public class LoginPage {
     @FindBy(className = "HeaderUserName")
     private WebElement usNme;
 
-    @FindBy(xpath = "/html/body/div[3]/div[2]/header/div[2]/div[2]/div[2]/div/div[6]/div[1]/div/div[2]/div/ul/li[5]/a")
+    @FindBy(className = "UserMenu__menu-link_logout")
     private WebElement exi;
 
 
