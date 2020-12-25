@@ -13,8 +13,8 @@ import org.openqa.selenium.support.FindBy;
 import java.util.concurrent.TimeUnit;
 public class CityTest {
 
-    public static LoginPage loginPage;
-    public static ProfilePage profilePage;
+    public static CityPage cityPage;
+    public static ProfileCityPage profileCityPage;
     public static WebDriver driver;
 
 
@@ -24,8 +24,8 @@ public class CityTest {
     {
         System.setProperty("webdriver.gecko.driver", "C:/opt/gecko/geckodriver.exe");
         driver = new FirefoxDriver();
-        loginPage = new LoginPage(driver);
-        profilePage = new ProfilePage(driver);
+        cityPage = new CityPage(driver);
+        profileCityPage = new ProfileCityPage(driver);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.citilink.ru");
@@ -34,17 +34,37 @@ public class CityTest {
 
     @Test
     public void CityTest() throws InterruptedException {
-        String s = loginPage.statVoit();
-        loginPage.showedMenu();
-        loginPage.inputLogin("89030219119");
-        loginPage.inputPasswd("velsar_123");
+        String S = cityPage.statGorod();
+        cityPage.showCities();
+        Thread.sleep(10000);
+        driver.get("https://www.citilink.ru");
+
+        profileCityPage.showedMenu();
+        profileCityPage.inputLogin("89030219119");
+        profileCityPage.inputPasswd("velsar_123");
         Thread.sleep(15000);
-        loginPage.clickLoginBtn();
-        if (s!=loginPage.statVoit1())
+        profileCityPage.clickLoginBtn();
+        String Z = profileCityPage.sravGor();
+        if(S == Z)
         {
-            loginPage.exProf();
-            loginPage.exits();
-            System.out.println("кнопка “Войти в аккаунт” сменилась на “Мой профиль”");
+            System.out.println("город успешно сменился");
         }
+        else
+        {
+            System.out.println("город не был сменен либо был не найден");
+        }
+        profileCityPage.nazhMenu();
+        profileCityPage.nazhmyMenu();
+        if(Z!=profileCityPage.myLoveCity())
+        {
+            System.out.println("город меню и город доставки совпадают");
+        }
+        else
+        {
+            System.out.println("город меню и город доставки не совпадают");
+        }
+
+
+
     }
 }

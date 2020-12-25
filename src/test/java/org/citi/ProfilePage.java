@@ -14,12 +14,12 @@ public class ProfilePage {
     /**
      * определение локатора меню пользователя
      */
-    @FindBy(xpath = "/html/body/div[3]/div[2]/header/div[2]/div[2]/div[2]/div/div[6]/div[1]/div/div[2]/div/ul/li[1]")
+    @FindBy(className = "HeaderUserName")
     public WebElement userMenu;
     /**
      * определение локатора кнопки выхода из аккаунта
      */
-    @FindBy(xpath = "/html/body/div[3]/div[2]/header/div[2]/div[2]/div[2]/div/div[6]/div[1]/div/div[2]/div/ul/li[5]")
+    @FindBy(className = "UserMenu__menu-link_logout")
     public WebElement logoutBtn;
     /**
      * метод для получения имени пользователя из меню пользователя
@@ -37,4 +37,6 @@ public class ProfilePage {
      * метод для нажатия кнопки выхода из аккаунта
      */
     public void userLogout() {
-        logoutBtn.click(); } }
+        logoutBtn.click(); }
+
+}

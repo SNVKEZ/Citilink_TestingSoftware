@@ -1,21 +1,15 @@
-package org.citi;
+package org.citihvlynsk;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.io.IOException;
-
-public class LoginPage {
-
+public class ProfileCityPage {
     public WebDriver driver;
-    public LoginPage(WebDriver driver) {
+    public ProfileCityPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver; }
-
-    @FindBy(xpath = "//*[contains(text(), 'Войти')]")
-    private WebElement statusVoit;
 
     @FindBy(className = "AuthPopup")
     private WebElement showMenu;
@@ -29,23 +23,17 @@ public class LoginPage {
     @FindBy(className = "SignIn__action")
     private WebElement loginBtn;
 
-    @FindBy(xpath = "//*[contains(text(), 'Алексей')]")
-    private WebElement statusVoit1;
+    @FindBy(className = "MainHeader__city")
+    private WebElement nazGor;
 
     @FindBy(className = "HeaderUserName")
-    private WebElement usNme;
+    private WebElement inMenu;
 
-    @FindBy(className = "UserMenu__menu-link_logout")
-    private WebElement exi;
+    @FindBy(className = "UserMenu__menu-link")
+    private WebElement myMenu;
 
-
-
-
-
-
-    public String statVoit() {
-        return statusVoit.getText();
-    }
+    @FindBy(className =  "MainHeader__city")
+    private WebElement myCity;
 
     public void inputLogin(String login) {
         loginField.sendKeys(login); }
@@ -54,22 +42,18 @@ public class LoginPage {
         showMenu.click();
     }
 
-    public String statVoit1(){
-        return  statusVoit1.getText();
-    }
     public void inputPasswd(String passwd) {
         passwdField.sendKeys(passwd); }
 
-    public void exProf(){
-        usNme.click();
-    }
-    public void exits(){
-        exi.click();
-    }
-
     public void clickLoginBtn() {
-        loginBtn.click();}
+        loginBtn.click();
+    }
 
+    public String sravGor() {return nazGor.getText();}
 
+    public void nazhMenu() { inMenu.click();}
 
+    public void nazhmyMenu() {myMenu.click();}
+
+    public String myLoveCity() {return myCity.getText();}
 }

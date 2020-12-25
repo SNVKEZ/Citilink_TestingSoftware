@@ -40,8 +40,8 @@ public class LoginTest {
         loginPage.clickLoginBtn();
         if (s!=loginPage.statVoit1())
         {
-            loginPage.exProf();
-            loginPage.exits();
+            profilePage.entryMenu();
+            profilePage.userLogout();
             System.out.println("кнопка “Войти в аккаунт” сменилась на “Мой профиль”");
         }
     }
