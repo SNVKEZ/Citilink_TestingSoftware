@@ -45,7 +45,7 @@ public class CityTest {
         Thread.sleep(15000);
         profileCityPage.clickLoginBtn();
         String Z = profileCityPage.sravGor();
-        if(S == Z)
+        if(S.equals(Z))
         {
             System.out.println("город успешно сменился");
         }
@@ -55,7 +55,9 @@ public class CityTest {
         }
         profileCityPage.nazhMenu();
         profileCityPage.nazhmyMenu();
-        if(Z!=profileCityPage.myLoveCity())
+        profileCityPage.adresDost();
+        String K = profileCityPage.myLoveCity();
+        if(Z.equals(K))
         {
             System.out.println("город меню и город доставки совпадают");
         }
@@ -63,8 +65,6 @@ public class CityTest {
         {
             System.out.println("город меню и город доставки не совпадают");
         }
-
-
 
     }
 }
